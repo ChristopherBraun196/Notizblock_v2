@@ -4,12 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notizblock</title>
+    <link rel="stylesheet" href="./style.css" />
     <link
       rel="shortcut icon"
       href="./assets/icon/logo.svg"
       type="image/x-icon"
     />
-    <!-- Bild von
+  </head>
+  <body onload="init()">
+    <header></header>
+    <div class="note-pad">
+      <img class="pic-size-a" src="./assets/img/notepad_640.png" alt="" />
+      <h1>Notizblock</h1>
+      <img class="pic-size-a" src="./assets/img/notepad_640.png" alt="" />
+    </div>
+    <section class="enter-note">
+      <label class="label" for="note_title">Notiz eintragen</label>
+      <input id="note_title" type="text" placeholder="Überschrift" />
+      <textarea id="note_input" type="text" placeholder="Notiz"></textarea>
+      <button class="note-b" onclick="addNote()">Notiz speichern</button>
+    </section>
+
+    <section class="all-note">
+      <div class="df">
+        <img class="pic-size-b" src="./assets/img/note_640.png" alt="" />
+        <h3>Notizen</h3>
+      </div>
+      <div class="n-content" id="content"></div>
+      <div class="df">
+        <img class="pic-size-b" src="./assets/img/archiv_640.png" alt="" />
+        <h3>Archiv</h3>
+      </div>
+      <div id="archiv_content"></div>
+
+     <div class="df">
+        <img class="pic-size-b" src="./assets/img/trash_640.png" alt="" />
+        <h3>Papierkorb</h3>
+      </div>
+      <div id="trash_content"></div>
+    </section>
+    <footer>
+      <!-- Bild von
     <a
       href="https://pixabay.com/de/users/mcmurryjulie-2375405/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2375785"
       >mcmurryjulie</a
@@ -18,21 +53,8 @@
     <a
       href="https://pixabay.com/de//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2375785"
       >Pixabay</a
-    >
-  </head> -->
-  <body onload="init()">
-    <h1>Notizblock</h1>
-    <input id="note_title" type="text" />
-    <input id="note_input" type="text" />
-    <button onclick="addNote()">Notiz speichern</button>
-    <h2>Notes</h2>
-    <div id="content"></div>
-
-    <h2>Archiv</h2>
-    <div id="archiv_content"></div>
-
-    <h2>Papierkorb</h2>
-    <div id="trash_content"></div>
+    >-->
+    </footer>
   </body>
   <script src="./script.js"></script>
   <script src="./scripts/template.js"></script>

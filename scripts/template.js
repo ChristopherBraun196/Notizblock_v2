@@ -1,5 +1,5 @@
 function getNoteTemplate(indexNote) {
-  return `<p>+ <B>title:${notesTitles[indexNote]} </b> <br>${notes[indexNote]}
+  return `<h2><strong>${notesTitles[indexNote]}</strong></h2> <br><p>${notes[indexNote]} <br>
     <button onclick="deleteNote(${indexNote})">Papierkorb</button> 
     <button onclick="moveToArchive(${indexNote})">Archiv</button></p>`;
 }

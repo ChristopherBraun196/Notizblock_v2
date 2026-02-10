@@ -22,13 +22,21 @@ function renderNotes() {
 
 function addNote() {
   let noteInputRef = document.getElementById("note_input");
+  let titleInputRef = document.getElementById("note_title");
+
   let noteInput = noteInputRef.value;
+  let titleInput = titleInputRef.value;
 
-  notes.push(noteInput);
+  //Only saves if both fields are filled in
+  if (noteInput && titleInput) {
+    notes.push(noteInput);
+    notesTitles.push(titleInput);
 
-  renderNotes();
+    renderNotes();
 
-  noteInputRef.value = "";
+    noteInputRef.value = "";
+    titleInputRef.value = "";
+  }
 }
 
 function deleteNote(indexNote) {
@@ -121,7 +129,7 @@ function trashToArchiv(index) {
 
   archivNotesTitles.push(moveTitle);
   archivNotes.push(moveNote);
-  
+
   renderTrashNotes();
   renderArchive();
 }
