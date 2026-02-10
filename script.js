@@ -1,6 +1,11 @@
-let notes = ["hey", "Zahl"];
+let notesTitles = ["Hailie", "Mittag", "Abends"];
+let notes = ["Hausaugaben machen", "Kochen", "JavaScript lernen"];
 
+let trashNotesTitles = [];
 let trashNotes = [];
+
+let archivNotesTitles = [];
+let archivNotes = [];
 
 function init() {
   renderNotes();
@@ -10,7 +15,7 @@ function renderNotes() {
   let contentRef = document.getElementById("content");
   contentRef.innerHTML = "";
 
-  for (let indexNote = 0; indexNote < notes.length; indexNote++) {    
+  for (let indexNote = 0; indexNote < notes.length; indexNote++) {
     contentRef.innerHTML += getNoteTemplate(indexNote);
   }
 }
@@ -26,28 +31,97 @@ function addNote() {
   noteInputRef.value = "";
 }
 
-function deleteNote(indexNote){
-   let trashNote = notes.splice(indexNote, 1)
-   trashNotes.push(trashNote);
-    renderNotes();
-    renderArchivNotes() 
+function deleteNote(indexNote) {
+  let trashNoteTitle = notesTitles.splice(indexNote, 1);
+  let trashNote = notes.splice(indexNote, 1);
+
+  trashNotesTitles.push(trashNoteTitle);
+  trashNotes.push(trashNote);
+
+  renderNotes();
+  renderTrashNotes();
 }
 
-function renderArchivNotes() {
-  let archivContentRef = document.getElementById("archiv_content");
-  archivContentRef.innerHTML = "";
+function renderTrashNotes() {
+  let trashContentRef = document.getElementById("trash_content");
+  trashContentRef.innerHTML = "";
 
-  for (let indexArchivNote = 0; indexArchivNote < trashNotes.length; indexArchivNote++) {    
-    archivContentRef.innerHTML += getArchivNoteTemplate(indexArchivNote);
+  for (
+    let indexTrashNote = 0;
+    indexTrashNote < trashNotes.length;
+    indexTrashNote++
+  ) {
+    trashContentRef.innerHTML += getTrashNoteTemplate(indexTrashNote);
   }
 }
 
-//templates
+function emptyTrash(indexTrashNote) {
+  trashNotesTitles.splice(indexTrashNote, 1);
+  trashNotes.splice(indexTrashNote, 1);
 
-function getNoteTemplate(indexNote) {
-  return `<p>+ ${notes[indexNote]}<button onclick="deleteNote(${indexNote})">X</button></p>`;
+  renderTrashNotes();
 }
 
-function getArchivNoteTemplate(indexArchivNote) {
-  return `<p>+ ${trashNotes[indexArchivNote]}<button onclick="deleteNote(${indexArchivNote})">X</button></p>`;
+function renderArchive() {
+  let archivContentRef = document.getElementById("archiv_content");
+  archivContentRef.innerHTML = "";
+
+  for (let i = 0; i < archivNotesTitles.length; i++) {
+    archivContentRef.innerHTML += getArchivNoteTemplate(i);
+  }
+}
+
+function moveToArchive(indexNote) {
+  let movedTitle = notesTitles.splice(indexNote, 1);
+  let moveNote = notes.splice(indexNote, 1);
+
+  archivNotesTitles.push(movedTitle);
+  archivNotes.push(moveNote);
+
+  renderNotes();
+  renderArchive();
+}
+
+function archiveToTrash(index) {
+  let movedTitle = archivNotesTitles.splice(index, 1);
+  let moveNote = archivNotes.splice(index, 1);
+
+  trashNotesTitles.push(movedTitle);
+  trashNotes.push(moveNote);
+
+  renderArchive();
+  renderTrashNotes();
+}
+
+function archivToNote(index) {
+  let moveTitle = archivNotesTitles.splice(index, 1);
+  let moveNote = archivNotes.splice(index, 1);
+
+  notesTitles.push(moveTitle);
+  notes.push(moveNote);
+
+  renderNotes();
+  renderArchive();
+}
+
+function trashToNote(index) {
+  let moveTitle = trashNotesTitles.splice(index, 1);
+  let moveNote = trashNotes.splice(index, 1);
+
+  notesTitles.push(moveTitle);
+  notes.push(moveNote);
+
+  renderNotes();
+  renderTrashNotes();
+}
+
+function trashToArchiv(index) {
+  let moveTitle = trashNotesTitles.splice(index, 1);
+  let moveNote = trashNotes.splice(index, 1);
+
+  archivNotesTitles.push(moveTitle);
+  archivNotes.push(moveNote);
+  
+  renderTrashNotes();
+  renderArchive();
 }

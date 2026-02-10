@@ -4,12 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notizblock</title>
-
-    <script src="./script.js"></script>
-  </head>
+    <link
+      rel="shortcut icon"
+      href="./assets/icon/logo.svg"
+      type="image/x-icon"
+    />
+    <!-- Bild von
+    <a
+      href="https://pixabay.com/de/users/mcmurryjulie-2375405/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2375785"
+      >mcmurryjulie</a
+    >
+    auf
+    <a
+      href="https://pixabay.com/de//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2375785"
+      >Pixabay</a
+    >
+  </head> -->
   <body onload="init()">
     <h1>Notizblock</h1>
-
+    <input id="note_title" type="text" />
     <input id="note_input" type="text" />
     <button onclick="addNote()">Notiz speichern</button>
     <h2>Notes</h2>
@@ -17,5 +30,10 @@
 
     <h2>Archiv</h2>
     <div id="archiv_content"></div>
+
+    <h2>Papierkorb</h2>
+    <div id="trash_content"></div>
   </body>
+  <script src="./script.js"></script>
+  <script src="./scripts/template.js"></script>
 </html>
