@@ -7,7 +7,7 @@
   background-color: azure;
   margin: 0;
   font-family: "OldStandardTT";
-  padding-inline: 10px;
+  /* padding-inline: 10px; */
 }
 
 header {
@@ -41,8 +41,8 @@ h1 {
 }
 
 h2 {
-    margin-top: 16px;
-    text-decoration: underline;
+  margin-top: 16px;
+  text-decoration: underline;
 }
 
 h3 {
@@ -64,7 +64,7 @@ input {
   border-radius: 14px;
   border-color: black;
   border-style: solid;
-  width: 250px;
+  width: 350px;
   height: 32px;
   font-size: 18px;
   padding-left: 6px;
@@ -81,7 +81,7 @@ textarea {
   border-radius: 14px;
   border-color: black;
   border-style: solid;
-  border-width:2px;
+  border-width: 2px;
   font-size: 18px;
   padding: 6px;
   width: 350px;
@@ -89,9 +89,8 @@ textarea {
   resize: none;
 }
 
-
 .note-b {
-  height: 32px;
+  height: 36px;
   width: 150px;
   border-color: black;
   border-style: solid;
@@ -125,16 +124,26 @@ textarea {
 
 .all-note {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .n-content {
- display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
+
+.n-flex {
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
   height: 80px;
   background-color: whitesmoke;

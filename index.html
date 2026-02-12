@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notizblock</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/template.css">
     <link
       rel="shortcut icon"
       href="./assets/icon/logo.svg"
@@ -21,27 +22,40 @@
     <section class="enter-note">
       <label class="label" for="note_title">Notiz eintragen</label>
       <input id="note_title" type="text" placeholder="Überschrift" />
-      <textarea id="note_input" type="text" placeholder="Notiz"></textarea>
+      <textarea
+        id="note_input"
+        type="text"
+        placeholder=" Hier kann deine Notiz stehen &#128526;"
+      ></textarea>
       <button class="note-b" onclick="addNote()">Notiz speichern</button>
     </section>
 
     <section class="all-note">
-      <div class="df">
-        <img class="pic-size-b" src="./assets/img/note_640.png" alt="" />
-        <h3>Notizen</h3>
+      <div class="n-flex">
+        <div class="df">
+          <img class="pic-size-b" src="./assets/img/note_640.png" alt="" />
+          <h3>Notizen</h3>
+        </div>
+        <div class="n-content" id="content"></div>
       </div>
-      <div class="n-content" id="content"></div>
-      <div class="df">
-        <img class="pic-size-b" src="./assets/img/archiv_640.png" alt="" />
-        <h3>Archiv</h3>
-      </div>
-      <div id="archiv_content"></div>
 
-     <div class="df">
-        <img class="pic-size-b" src="./assets/img/trash_640.png" alt="" />
-        <h3>Papierkorb</h3>
+      <div class="n-flex">
+        <div class="df">
+          <img class="pic-size-b" src="./assets/img/archiv_640.png" alt="" />
+          <h3>Archiv</h3>
+        </div>
+        <div class="n-content" id="archiv_content"></div>
       </div>
-      <div id="trash_content"></div>
+
+
+      <div class="n-flex">
+        <div class="df">
+          <img class="pic-size-b" src="./assets/img/trash_640.png" alt="" />
+          <h3>Papierkorb</h3>
+        </div>
+        <div class="n-content" id="trash_content"></div>
+      </div>
+
     </section>
     <footer>
       <!-- Bild von
@@ -59,3 +73,4 @@
   <script src="./script.js"></script>
   <script src="./scripts/template.js"></script>
 </html>
+
