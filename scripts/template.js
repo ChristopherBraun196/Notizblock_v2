@@ -1,13 +1,12 @@
-
 function getNoteTemplate(indexNote) {
   return `
     <div class="note-card" id="note-${indexNote}">
       <div class="note-header">
-        <h3>${notesTitles[indexNote]}</h3>
+        <h4>${allNotes.notesTitles[indexNote]}</h4>
       </div>
       
       <div class="note-body">
-        <p>${notes[indexNote]}</p>
+        <p class="note-p">${allNotes.notes[indexNote]}</p>
       </div>
 
       <div class="note-footer">
@@ -26,11 +25,11 @@ function getTrashNoteTemplate(indexTrashNote) {
   return `
     <div class="note-card trash-card">
       <div class="note-header">
-        <h3>${trashNotesTitles[indexTrashNote]}</h3>
+        <h4>${allNotes.trashNotesTitles[indexTrashNote]}</h4>
       </div>
       
       <div class="note-body">
-        <p>${trashNotes[indexTrashNote]}</p>
+        <p class="note-p">${allNotes.trashNotes[indexTrashNote]}</p>
       </div>
 
       <div class="note-footer">
@@ -52,11 +51,11 @@ function getArchivNoteTemplate(index) {
   return `
     <article class="note-card archive-card">
       <div class="note-header">
-        <h3>${archivNotesTitles[index]}</h3>
+        <h4>${allNotes.archivNotesTitles[index]}</h4>
       </div>
       
       <div class="note-body">
-        <p>${archivNotes[index]}</p>
+        <p class="note-p">${allNotes.archivNotes[index]}</p>
       </div>
 
       <div class="note-footer">
@@ -70,4 +69,3 @@ function getArchivNoteTemplate(index) {
     </article>
   `;
 }
-

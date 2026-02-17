@@ -1,21 +1,30 @@
-let notesTitles = ["Hailie", "Mittag", "Abends"];
-let notes = ["Hausaugaben machen", "Kochen", "JavaScript lernen"];
+let allNotes = {
+  notesTitles: ["Hailie", "Mittag", "Abends"],
+  notes: ["Hausaugaben machen", "Kochen", "JavaScript lernen"],
 
-let trashNotesTitles = [];
-let trashNotes = [];
+  trashNotesTitles: [],
+  trashNotes: [],
 
-let archivNotesTitles = [];
-let archivNotes = [];
+  archivNotesTitles: [],
+  archivNotes: [],
+};
 
 function init() {
+  loadFromLocalStorage();
+  renderAllNotes();
+}
+
+function renderAllNotes() {
   renderNotes();
+  renderArchive();
+  renderTrashNotes();
 }
 
 function renderNotes() {
   let contentRef = document.getElementById("content");
   contentRef.innerHTML = "";
 
-  for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+  for (let indexNote = 0; indexNote < allNotes.notes.length; indexNote++) {
     contentRef.innerHTML += getNoteTemplate(indexNote);
   }
 }
@@ -29,10 +38,11 @@ function addNote() {
 
   //Only saves if both fields are filled in
   if (noteInput && titleInput) {
-    notes.push(noteInput);
-    notesTitles.push(titleInput);
+    allNotes.notes.push(noteInput);
+    allNotes.notesTitles.push(titleInput);
 
     renderNotes();
+    saveToLocalStorage();
 
     noteInputRef.value = "";
     titleInputRef.value = "";
@@ -48,6 +58,7 @@ function deleteNote(indexNote) {
 
   renderNotes();
   renderTrashNotes();
+  saveToLocalStorage();
 }
 
 function renderTrashNotes() {
@@ -56,7 +67,7 @@ function renderTrashNotes() {
 
   for (
     let indexTrashNote = 0;
-    indexTrashNote < trashNotes.length;
+    indexTrashNote < allNotes.trashNotes.length;
     indexTrashNote++
   ) {
     trashContentRef.innerHTML += getTrashNoteTemplate(indexTrashNote);
@@ -74,7 +85,7 @@ function renderArchive() {
   let archivContentRef = document.getElementById("archiv_content");
   archivContentRef.innerHTML = "";
 
-  for (let i = 0; i < archivNotesTitles.length; i++) {
+  for (let i = 0; i < allNotes.archivNotesTitles.length; i++) {
     archivContentRef.innerHTML += getArchivNoteTemplate(i);
   }
 }
