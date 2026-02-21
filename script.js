@@ -78,7 +78,9 @@ function emptyTrash(indexTrashNote) {
   allNotes.trashNotesTitles.splice(indexTrashNote, 1);
   allNotes.trashNotes.splice(indexTrashNote, 1);
 
+  saveToLocalStorage();
   renderTrashNotes();
+
 }
 
 function renderArchive() {
