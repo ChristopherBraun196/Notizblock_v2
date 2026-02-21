@@ -14,6 +14,8 @@ header {
   height: 80px;
   background-color: whitesmoke;
   margin-bottom: 40px;
+  position: sticky;
+  top: 0;
 }
 
 .pic-size-a {

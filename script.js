@@ -50,11 +50,11 @@ function addNote() {
 }
 
 function deleteNote(indexNote) {
-  let trashNoteTitle = notesTitles.splice(indexNote, 1);
-  let trashNote = notes.splice(indexNote, 1);
+  let trashNoteTitle = allNotes.notesTitles.splice(indexNote, 1);
+  let trashNote = allNotes.notes.splice(indexNote, 1);
 
-  trashNotesTitles.push(trashNoteTitle);
-  trashNotes.push(trashNote);
+  allNotes.trashNotesTitles.push(trashNoteTitle);
+  allNotes.trashNotes.push(trashNote);
 
   renderNotes();
   renderTrashNotes();
@@ -75,8 +75,8 @@ function renderTrashNotes() {
 }
 
 function emptyTrash(indexTrashNote) {
-  trashNotesTitles.splice(indexTrashNote, 1);
-  trashNotes.splice(indexTrashNote, 1);
+  allNotes.trashNotesTitles.splice(indexTrashNote, 1);
+  allNotes.trashNotes.splice(indexTrashNote, 1);
 
   renderTrashNotes();
 }
@@ -91,55 +91,55 @@ function renderArchive() {
 }
 
 function moveToArchive(indexNote) {
-  let movedTitle = notesTitles.splice(indexNote, 1);
-  let moveNote = notes.splice(indexNote, 1);
+  let movedTitle = allNotes.notesTitles.splice(indexNote, 1);
+  let moveNote = allNotes.notes.splice(indexNote, 1);
 
-  archivNotesTitles.push(movedTitle);
-  archivNotes.push(moveNote);
+  allNotes.archivNotesTitles.push(movedTitle);
+  allNotes.archivNotes.push(moveNote);
 
   renderNotes();
   renderArchive();
 }
 
 function archiveToTrash(index) {
-  let movedTitle = archivNotesTitles.splice(index, 1);
-  let moveNote = archivNotes.splice(index, 1);
+  let movedTitle = allNotes.archivNotesTitles.splice(index, 1);
+  let moveNote = allNotes.archivNotes.splice(index, 1);
 
-  trashNotesTitles.push(movedTitle);
-  trashNotes.push(moveNote);
+  allNotes.trashNotesTitles.push(movedTitle);
+  allNotes.trashNotes.push(moveNote);
 
   renderArchive();
   renderTrashNotes();
 }
 
 function archivToNote(index) {
-  let moveTitle = archivNotesTitles.splice(index, 1);
-  let moveNote = archivNotes.splice(index, 1);
+  let moveTitle = allNotes.archivNotesTitles.splice(index, 1);
+  let moveNote = allNotes.archivNotes.splice(index, 1);
 
-  notesTitles.push(moveTitle);
-  notes.push(moveNote);
+  allNotes.notesTitles.push(moveTitle);
+  allNotes.notes.push(moveNote);
 
   renderNotes();
   renderArchive();
 }
 
 function trashToNote(index) {
-  let moveTitle = trashNotesTitles.splice(index, 1);
-  let moveNote = trashNotes.splice(index, 1);
+  let moveTitle = allNotes.trashNotesTitles.splice(index, 1);
+  let moveNote = allNotes.trashNotes.splice(index, 1);
 
-  notesTitles.push(moveTitle);
-  notes.push(moveNote);
+  allNotes.notesTitles.push(moveTitle);
+  allNotes.notes.push(moveNote);
 
   renderNotes();
   renderTrashNotes();
 }
 
 function trashToArchiv(index) {
-  let moveTitle = trashNotesTitles.splice(index, 1);
-  let moveNote = trashNotes.splice(index, 1);
+  let moveTitle = allNotes.trashNotesTitles.splice(index, 1);
+  let moveNote = allNotes.trashNotes.splice(index, 1);
 
-  archivNotesTitles.push(moveTitle);
-  archivNotes.push(moveNote);
+  allNotes.archivNotesTitles.push(moveTitle);
+  allNotes.archivNotes.push(moveNote);
 
   renderTrashNotes();
   renderArchive();
