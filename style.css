@@ -12,8 +12,7 @@
 
 header {
   height: 80px;
-  background-color: whitesmoke;
-  margin-bottom: 40px;
+  background-color: whitesmoke;  
   position: sticky;
   top: 0;
 }
@@ -21,6 +20,7 @@ header {
 .pic-size-a {
   height: 80px;
   width: 100px;
+  background-color: whitesmoke;
 }
 
 .pic-size-b {
@@ -40,6 +40,7 @@ h1 {
   margin: 15px;
   font-size: 58px;
   font-weight: bolder;
+  background-color: whitesmoke;
 }
 
 h2 {
@@ -112,7 +113,7 @@ textarea {
   align-content: center;
   justify-content: center;
   align-items: center;
-  margin: 15px;
+  
 }
 
 .enter-note {

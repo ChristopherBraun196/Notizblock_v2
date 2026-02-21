@@ -90,9 +90,9 @@ function renderArchive() {
   }
 }
 
-function moveToArchive(indexNote) {
-  let movedTitle = allNotes.notesTitles.splice(indexNote, 1);
-  let moveNote = allNotes.notes.splice(indexNote, 1);
+function moveToArchive(index) {
+  let movedTitle = allNotes.notesTitles.splice(index, 1);
+  let moveNote = allNotes.notes.splice(index, 1);
 
   allNotes.archivNotesTitles.push(movedTitle);
   allNotes.archivNotes.push(moveNote);
